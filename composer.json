@@ -1,0 +1,22 @@
+{
+    "name": "i3bepb/drop-foreign-if-exist",
+    "description": "Method drop foreign if exist for psql",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^v6.0 || v7.0",
+        "nunomaduro/collision": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "I3bepb\\DropForeignIfExist\\": "src/",
+            "I3bepb\\DropForeignIfExist\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "I3bepb\\DropForeignIfExist\\ServiceProvider"
+            ]
+        }
+    }
+}
