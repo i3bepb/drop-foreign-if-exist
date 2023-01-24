@@ -1,6 +1,6 @@
 <?php
 
-namespace I3bepb\DropForeignIfExist;
+namespace I3bepb\DropForeignIfExists;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\Grammar;
@@ -18,13 +18,13 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        Grammar::macro('compileDropForeignIfExist', function (Blueprint $blueprint, Fluent $command) {
+        Grammar::macro('compileDropForeignIfExists', function (Blueprint $blueprint, Fluent $command) {
+            if (is_a($this, PostgresGrammar::class)) {
+                return "alter table {$this->wrapTable($blueprint)} drop constraint if exists {$this->wrap($command->index)}";
+            }
             throw new RuntimeException('The database driver in use does not support drop foreign if exist.');
         });
-        PostgresGrammar::macro('compileDropForeignIfExist', function (Blueprint $blueprint, Fluent $command) {
-            return "alter table {$this->wrapTable($blueprint)} drop constraint if exists {$this->wrap($command->index)}";
-        });
-        Blueprint::macro('dropForeignIfExist', function ($index) {
+        Blueprint::macro('dropForeignIfExists', function ($index) {
             $columns = [];
 
             if (is_array($index)) {

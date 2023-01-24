@@ -1,23 +1,20 @@
 <?php
 
-namespace I3bepb\DropForeignIfExist\Tests;
+namespace I3bepb\DropForeignIfExists\Tests;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\SQLiteGrammar;
 use Mockery;
-use Orchestra\Testbench\TestCase;
 use RuntimeException;
 
 class DatabaseSQLiteSchemaGrammarTest extends TestCase
 {
-    protected function getPackageProviders($app)
-    {
-        return [
-            'I3bepb\DropForeignIfExist\ServiceProvider',
-        ];
-    }
-
+    /**
+     * Clean up the testing environment before the next test.
+     *
+     * @return void
+     */
     protected function tearDown(): void
     {
         Mockery::close();
@@ -35,6 +32,9 @@ class DatabaseSQLiteSchemaGrammarTest extends TestCase
         return Mockery::mock(Connection::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Schema\Grammars\SQLiteGrammar
+     */
     public function getGrammar()
     {
         return new SQLiteGrammar;

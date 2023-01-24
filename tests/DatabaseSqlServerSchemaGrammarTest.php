@@ -1,30 +1,20 @@
 <?php
 
-namespace I3bepb\DropForeignIfExist\Tests;
+namespace I3bepb\DropForeignIfExists\Tests;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Schema\Grammars\SqlServerGrammar;
 use Mockery;
-use Orchestra\Testbench\TestCase;
 use RuntimeException;
 
 class DatabaseSqlServerSchemaGrammarTest extends TestCase
 {
     /**
-     * Automatically enables package discoveries.
+     * Clean up the testing environment before the next test.
      *
-     * @var bool
+     * @return void
      */
-    protected $enablesPackageDiscoveries = true;
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            'I3bepb\DropForeignIfExist\ServiceProvider',
-        ];
-    }
-
     protected function tearDown(): void
     {
         Mockery::close();
@@ -42,6 +32,9 @@ class DatabaseSqlServerSchemaGrammarTest extends TestCase
         return Mockery::mock(Connection::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Schema\Grammars\SqlServerGrammar
+     */
     public function getGrammar()
     {
         return new SqlServerGrammar;
