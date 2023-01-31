@@ -1,6 +1,7 @@
 {
     "name": "i3bepb/drop-foreign-if-exists",
     "description": "Method drop foreign if exist for psql",
+    "license":"MIT",
     "require": {
         "php": "^7.4 || ^8.0"
     },
