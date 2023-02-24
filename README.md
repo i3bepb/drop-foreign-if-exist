@@ -10,29 +10,24 @@ Add method dropForeignIfExists in Blueprint for Postgresql.
 |        1        |        8        |
 |   not support   |       <=7       |
 
-#### Как запустить тесты используя docker
+# Testing
 
-Скачиваем контейнер
-```
-docker pull composer:2.5.1
-```
-
-Запускаем контейнер с composer-ом, в который монтируем наши файлы
-```
-docker run --rm -it -v $(pwd):/app composer:2.5.1 sh
-```
-
-Запускаем тесты внутри контейнера
+See workflow testing.yml. For example Laravel 9.
 ```shell
-php vendor/bin/testbench package:test --do-not-cache-result
+docker pull i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17
 ```
 
-Запускаем конкретный тест
+Run container with volume
 ```shell
-php vendor/bin/testbench package:test --filter 'I3bepb\\DropForeignIfExists\\Tests\\DatabasePostgresSchemaGrammarTest::drop_foreign_if_exists_with_string'
+docker run --rm -it -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17 sh
 ```
 
-# Support orchestra/testbench
+In container
+```shell
+composer install && php vendor/bin/testbench package:test --do-not-cache-result
+```
+
+## Support orchestra/testbench
 
 | laravel  | testbench  |
 |:--------:|:----------:|
@@ -41,7 +36,7 @@ php vendor/bin/testbench package:test --filter 'I3bepb\\DropForeignIfExists\\Tes
 |   7.x    |    5.x     |
 |   6.x    |    4.x     |
 
-# Support nunomaduro/collision
+## Support nunomaduro/collision
 
 | testbench | nunomaduro/collision |
 |:---------:|:--------------------:|

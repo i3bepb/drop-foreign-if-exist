@@ -1,5 +1,5 @@
 {
-    "name": "i3bepb/drop-foreign-if-exists",
+    "name": "i3bepb/laravel-drop-foreign-if-exists",
     "description": "Method drop foreign if exist for psql",
     "license":"MIT",
     "require": {
