@@ -9,40 +9,40 @@ jobs:
   test-laravel8-php74:
     runs-on: ubuntu-latest
     steps:
-      - run: docker pull i3bepb/php-for-test:1.2.0-php-7.4.33-cli-alpine3.16
+      - run: docker pull i3bepb/php-for-test:1.2.3-php-7.4.33-cli-alpine3.16
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-7.4.33-cli-alpine3.16 composer install
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-7.4.33-cli-alpine3.16 php vendor/bin/testbench package:test --do-not-cache-result
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.3-php-7.4.33-cli-alpine3.16 composer install
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.3-php-7.4.33-cli-alpine3.16 php vendor/bin/testbench package:test --do-not-cache-result
   test-laravel8-php80:
     runs-on: ubuntu-latest
     steps:
-      - run: docker pull i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16
+      - run: docker pull i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16 composer require orchestra/testbench:^v6.0
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16 php vendor/bin/testbench package:test --do-not-cache-result
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16 composer require orchestra/testbench:^v6.0
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16 php vendor/bin/testbench package:test --do-not-cache-result
   test-laravel8-php81:
     runs-on: ubuntu-latest
     steps:
-      - run: docker pull i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17
+      - run: docker pull i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17 composer require orchestra/testbench:^v6.0
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17 php vendor/bin/testbench package:test --do-not-cache-result
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17 composer require orchestra/testbench:^v6.0
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17 php vendor/bin/testbench package:test --do-not-cache-result
   test-laravel9-php80:
     runs-on: ubuntu-latest
     steps:
-      - run: docker pull i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16
+      - run: docker pull i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16 composer require orchestra/testbench:^v7.0
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.2.0-php-8.0.28-cli-alpine3.16 php vendor/bin/testbench package:test --do-not-cache-result
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16 composer require orchestra/testbench:^v7.0
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.1.1-php-8.0.28-cli-alpine3.16 php vendor/bin/testbench package:test --coverage --do-not-cache-result
   test-laravel9-php81:
     runs-on: ubuntu-latest
     steps:
-      - run: docker pull i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17
+      - run: docker pull i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17 composer require orchestra/testbench:^v7.0
-      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.0-php-8.1.16-cli-alpine3.17 php vendor/bin/testbench package:test --do-not-cache-result
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17 composer require orchestra/testbench:^v7.0
+      - run: docker run --rm -v $(pwd):/home/www-data/application i3bepb/php-for-test:1.0.3-php-8.1.16-cli-alpine3.17 php vendor/bin/testbench package:test --coverage --do-not-cache-result
